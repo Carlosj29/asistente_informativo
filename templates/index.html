@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistente de IA para Documentos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Asistente de IA para Documentos</h1>
+        
+        <!-- Sección de subida de archivos -->
+        <div class="upload-section">
+            <h3>1. Sube tu documento</h3>
+            <input type="file" id="fileInput" accept=".txt,.pdf,.docx" hidden>
+            <button id="uploadBtn">Seleccionar Archivo</button>
+            <div id="loader" style="display: none;">Procesando documento...</div>
+        </div>
+        
+        <!-- Visualización del contenido -->
+        <div class="document-preview">
+            <h3>2. Contenido extraído</h3>
+            <div id="detectedText" class="content-box">
+                El contenido del documento aparecerá aquí...
+            </div>
+        </div>
+        
+        <!-- Sección de preguntas (inicialmente oculta) -->
+        <div id="questionSection" class="question-section" style="display: none;">
+            <h3>3. Haz preguntas sobre el documento</h3>
+            <input 
+                type="text" 
+                id="questionInput" 
+                class="question-input" 
+                placeholder="Ej: ¿Cuál es el resumen de este documento?"
+            >
+            <button id="askButton" class="ask-btn">Preguntar a la IA</button>
+            
+            <div class="response-area">
+                <h4>Respuesta:</h4>
+                <div id="explanation" class="content-box">
+                    La explicación aparecerá aquí...
+                </div>
+                <audio id="audioPlayer" controls style="display: none;"></audio>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
