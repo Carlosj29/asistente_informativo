@@ -15,6 +15,7 @@ app.config['UPLOAD_FOLDER'] = 'uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 # Inicializa pygame para audio
+os.environ['SDL_AUDIODRIVER'] = 'dummy'
 pygame.mixer.init()
 
 client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
